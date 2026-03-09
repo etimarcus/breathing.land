@@ -6,500 +6,42 @@
 <title>Breathing Land — A Festival That Grows Into a Home</title>
 <meta name="description" content="A recurring festival that leaves behind not ashes, but life. Each gathering builds a regenerative settlement — homes, greenhouses, gardens, schools — until the land breathes on its own.">
 <link rel="icon" type="image/png" href="img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-
-:root {
-  --cream: #f4f0e8;
-  --warm-white: #faf8f3;
-  --earth: #2a2118;
-  --earth-light: #4a3f30;
-  --sage: #5a7247;
-  --sage-light: #7a9460;
-  --sage-muted: #8aa878;
-  --gold: #c4a055;
-  --gold-light: #dbb96a;
-  --stone: #998f7f;
-  --dark: #1a1612;
-  --dark-green: #0e1a0c;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'DM Sans', -apple-system, sans-serif;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: var(--font-body);
-  color: var(--earth);
-  font-size: 17px;
-  font-weight: 300;
-  line-height: 1.7;
-  overflow-x: hidden;
-  background: var(--cream);
-}
-
-a { color: var(--sage); text-decoration: none; transition: color 0.3s; }
-a:hover { color: var(--sage-light); }
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 4rem 2rem;
-  background: var(--dark);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 50% 40%, rgba(90,114,71,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(196,160,85,0.06) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-}
-
-.hero h1 {
-  font-family: var(--font-display);
-  font-size: 6rem;
-  font-weight: 400;
-  color: var(--cream);
-  letter-spacing: -0.02em;
-  line-height: 1;
-  margin-bottom: 2rem;
-  animation: fadeUp 1.2s ease-out;
-}
-
-.hero-tagline {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-style: italic;
-  color: var(--sage-muted);
-  margin-bottom: 3.5rem;
-  animation: fadeUp 1.2s ease-out 0.2s backwards;
-}
-
-.hero-verse {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  color: rgba(244,240,232,0.5);
-  line-height: 2.4;
-  font-weight: 400;
-  animation: fadeUp 1.2s ease-out 0.4s backwards;
-}
-
-.hero-verse em {
-  color: rgba(244,240,232,0.75);
-  font-style: normal;
-}
-
-.scroll-hint {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: breathe 3s ease-in-out infinite, fadeUp 1.2s ease-out 0.8s backwards;
-}
-
-.scroll-hint span {
-  display: block;
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, var(--sage-muted), transparent);
-}
-
-/* ── NARRATIVE SECTIONS ── */
-.scene {
-  padding: 8rem 2rem;
-}
-
-.scene-dark {
-  background: var(--dark);
-  color: var(--cream);
-}
-
-.scene-cream {
-  background: var(--cream);
-  color: var(--earth);
-}
-
-.scene-warm {
-  background: var(--warm-white);
-  color: var(--earth);
-}
-
-.scene-green {
-  background: var(--dark-green);
-  color: var(--cream);
-}
-
-.narrow {
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-.wide {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-/* ── TYPOGRAPHY ── */
-.scene-title {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  margin-bottom: 3rem;
-}
-
-.scene-dark .scene-title { color: var(--cream); }
-.scene-cream .scene-title,
-.scene-warm .scene-title { color: var(--earth); }
-
-.scene-label {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  display: block;
-}
-
-.scene-dark .scene-label { color: var(--sage-muted); }
-.scene-cream .scene-label,
-.scene-warm .scene-label { color: var(--stone); }
-
-.prose {
-  font-size: 1.15rem;
-  line-height: 2;
-}
-
-.prose p {
-  margin-bottom: 2rem;
-}
-
-.scene-dark .prose { color: rgba(244,240,232,0.65); }
-.scene-cream .prose,
-.scene-warm .prose { color: var(--earth-light); }
-
-.prose em {
-  font-style: italic;
-  font-family: var(--font-display);
-  font-size: 1.2em;
-}
-
-.scene-dark .prose em { color: var(--cream); }
-.scene-cream .prose em,
-.scene-warm .prose em { color: var(--earth); }
-
-/* ── FULL QUOTE ── */
-.full-quote {
-  min-height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6rem 2rem;
-  background: var(--dark-green);
-  position: relative;
-}
-
-.full-quote::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, rgba(90,114,71,0.10) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.full-quote blockquote {
-  position: relative;
-  z-index: 1;
-  max-width: 700px;
-  font-family: var(--font-display);
-  font-size: 1.55rem;
-  font-style: italic;
-  font-weight: 400;
-  color: rgba(244,240,232,0.8);
-  line-height: 2;
-  text-align: center;
-  border: none;
-  padding: 0;
-  background: none;
-}
-
-.full-quote blockquote strong {
-  color: var(--cream);
-  font-weight: 400;
-}
-
-/* ── THE FOUR ACTS ── */
-.acts {
-  counter-reset: act;
-}
-
-.act {
-  counter-increment: act;
-  padding: 5rem 2rem;
-  border-bottom: 1px solid rgba(42,33,24,0.08);
-  position: relative;
-}
-
-.act:last-child {
-  border-bottom: none;
-}
-
-.act-inner {
-  max-width: 680px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 2.5rem;
-  align-items: start;
-}
-
-.act-num {
-  font-family: var(--font-display);
-  font-size: 4.5rem;
-  font-weight: 400;
-  line-height: 1;
-  color: rgba(90,114,71,0.15);
-}
-
-.act-num::before {
-  content: counter(act, upper-roman);
-}
-
-.act-body h3 {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 400;
-  color: var(--earth);
-  margin-bottom: 1rem;
-}
-
-.act-body p {
-  font-size: 1.05rem;
-  color: var(--earth-light);
-  line-height: 1.9;
-}
-
-/* ── WHAT REMAINS ── */
-.remains-list {
-  list-style: none;
-}
-
-.remains-list li {
-  padding: 2.5rem 0;
-  border-bottom: 1px solid rgba(244,240,232,0.06);
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.remains-list li:first-child {
-  padding-top: 0;
-}
-
-.remains-list li:last-child {
-  border-bottom: none;
-}
-
-.remains-name {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: var(--cream);
-}
-
-.remains-desc {
-  font-size: 0.95rem;
-  color: rgba(244,240,232,0.55);
-  line-height: 1.9;
-}
-
-/* ── JOIN ── */
-.join-text {
-  font-size: 1.1rem;
-  color: var(--earth-light);
-  line-height: 2;
-  margin-bottom: 1.5rem;
-}
-
-.join-links {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 3rem;
-}
-
-.join-links a {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--sage);
-  position: relative;
-  padding-bottom: 4px;
-}
-
-.join-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--sage);
-  opacity: 0.3;
-  transition: opacity 0.3s;
-}
-
-.join-links a:hover::after {
-  opacity: 1;
-}
-
-/* ── FOOTER ── */
-footer {
-  text-align: center;
-  padding: 3rem 2rem;
-  background: var(--dark);
-  font-size: 0.8rem;
-  color: rgba(244,240,232,0.3);
-  letter-spacing: 0.05em;
-}
-
-footer a {
-  color: rgba(244,240,232,0.4);
-}
-
-footer a:hover {
-  color: rgba(244,240,232,0.7);
-}
-
-/* ── DIVIDER ── */
-.divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 0;
-  background: var(--cream);
-}
-
-.divider span {
-  display: block;
-  width: 60px;
-  height: 1px;
-  background: var(--stone);
-  opacity: 0.3;
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes breathe {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.8; }
-}
-
-/* ── ILLUSTRATION ── */
-.illustration {
-  position: relative;
-  line-height: 0;
-}
-
-.illustration img {
-  width: 100%;
-  display: block;
-}
-
-.illustration::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 30%;
-  background: linear-gradient(to bottom, var(--cream) 0%, transparent 100%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.illustration::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 30%;
-  background: linear-gradient(to top, var(--warm-white) 0%, transparent 100%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 3.5rem; }
-  .hero-tagline { font-size: 1.2rem; }
-  .hero-verse { font-size: 1rem; line-height: 2.2; }
-  .scene { padding: 5rem 1.5rem; }
-  .scene-title { font-size: 2.2rem; }
-  .act { padding: 3rem 1.5rem; }
-  .act-inner { grid-template-columns: 60px 1fr; gap: 1.5rem; }
-  .act-num { font-size: 3rem; }
-  .act-body h3 { font-size: 1.4rem; }
-  .remains-list li { grid-template-columns: 1fr; gap: 0.5rem; }
-  .full-quote { min-height: auto; padding: 5rem 1.5rem; }
-  .full-quote blockquote { font-size: 1.2rem; }
-}
-
-@media (max-width: 480px) {
-  .hero h1 { font-size: 2.6rem; }
-  .hero-tagline { font-size: 1rem; margin-bottom: 2.5rem; }
-  .hero-verse { font-size: 0.9rem; }
-  .scene-title { font-size: 1.8rem; }
-  .prose { font-size: 1rem; }
-  .act-inner { grid-template-columns: 1fr; gap: 1rem; }
-  .act-num { font-size: 2.5rem; }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ━━━ HERO ━━━ -->
+<nav>
+  <a href="/" class="nav-brand">BREATHING LAND</a>
+  <ul class="nav-links">
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#what-remains">What Remains</a></li>
+    <li><a href="#join">Join</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+</nav>
+
 <header class="hero">
   <div class="hero-inner">
-    <h1>Breathing<br>Land</h1>
-    <p class="hero-tagline">A festival that doesn't burn what it builds.</p>
-    <p class="hero-verse">
-      A recurring gathering that leaves behind not ashes, but <em>life</em>.<br>
+    <h1>Breathing Land</h1>
+    <p class="hero-tagline">
+      A festival that doesn't burn what it builds.
+    </p>
+    <p class="hero-sub">
+      A recurring gathering that leaves behind not ashes, but life.<br>
       Each time it returns, the land grows. Homes rise. Greenhouses bloom.<br>
       Gardens take root. Schools open their doors.<br>
       Until the festival becomes a village,<br>
       and the village becomes a civilization.
     </p>
+    <a href="#join" class="btn">Be Part of It</a>
   </div>
-  <div class="scroll-hint"><span></span></div>
 </header>
 
-<!-- ━━━ THE VISION ━━━ -->
-<section class="scene scene-cream">
-  <div class="narrow">
-    <span class="scene-label">The Vision</span>
-    <div class="prose">
+<section id="vision" class="section">
+  <div class="container">
+    <h2>The Vision</h2>
+    <div class="text-block">
       <p>
         I get Burning Man, I really do. The radical self-expression, the impossible
         structures, the temporary city that pulses with life for a week and then
@@ -507,12 +49,12 @@ footer a:hover {
       </p>
       <p>
         What if a festival could leave something behind for the good of the earth and
-        mankind? What if it could breed something that <em>grows life</em>? What if thousands
-        of people gathered not just to celebrate, but to build — and what they
+        mankind? What if it could breed something that grows life? What if thousands
+        of people gathered not just to celebrate, but to <em>build</em> — and what they
         built kept growing long after the music stopped?
       </p>
       <p>
-        This is Breathing Land. A recurring festival that returns to the same place,
+        This is Breathing Land. A recurring festival that returns to the same location,
         and each time it does, it leaves behind a small stone. Over the years, those stones
         become a castle. A living, breathing settlement that grows and matures with every
         gathering — a green city where urban and rural are not separated spatially, but
@@ -522,153 +64,131 @@ footer a:hover {
   </div>
 </section>
 
-<!-- ━━━ ILLUSTRATION ━━━ -->
-<div class="illustration">
+<div class="full-image">
   <img src="img/guild.png" alt="Aerial view of a regenerative settlement — ecological compounds, greenhouses, gardens, and a central dome surrounded by water and life.">
 </div>
 
-<!-- ━━━ HOW IT WORKS ━━━ -->
-<section class="scene scene-warm">
-  <div class="narrow" style="margin-bottom: 3rem;">
-    <span class="scene-label">How It Works</span>
-    <p class="scene-title">Four acts. One growing home.</p>
-  </div>
-
-  <div class="acts">
-    <div class="act">
-      <div class="act-inner">
-        <div class="act-num"></div>
-        <div class="act-body">
-          <h3>Gather</h3>
-          <p>
-            Thousands meet on a chosen piece of land. Musicians, builders,
-            permaculturists, engineers, dreamers, families. They come to learn,
-            to work, to celebrate, to meditate, and to rest.
-          </p>
-        </div>
+<section id="how" class="section section-alt">
+  <div class="container">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">I</div>
+        <h3>Gather</h3>
+        <p>
+          Thousands meet on a chosen piece of land. Musicians, builders,
+          permaculturists, engineers, dreamers, families. They come to learn,
+          to work, to celebrate, to meditate, and to rest.
+        </p>
       </div>
-    </div>
-    <div class="act">
-      <div class="act-inner">
-        <div class="act-num"></div>
-        <div class="act-body">
-          <h3>Build</h3>
-          <p>
-            During the festival, participants construct real infrastructure —
-            ecological compound homes, productive greenhouses, food forests,
-            water systems, renewable energy. Not temporary art. Permanent life.
-          </p>
-        </div>
+      <div class="step">
+        <div class="step-number">II</div>
+        <h3>Build</h3>
+        <p>
+          During the festival, participants construct real infrastructure —
+          ecological compound homes, productive greenhouses, food forests,
+          water systems, renewable energy. Not temporary art. Permanent life.
+        </p>
       </div>
-    </div>
-    <div class="act">
-      <div class="act-inner">
-        <div class="act-num"></div>
-        <div class="act-body">
-          <h3>Leave Behind</h3>
-          <p>
-            When the festival ends, the structures stay. The gardens keep growing.
-            Some people stay too. With each edition, the settlement expands —
-            more homes, more food, more community, more life.
-          </p>
-        </div>
+      <div class="step">
+        <div class="step-number">III</div>
+        <h3>Leave Behind</h3>
+        <p>
+          When the festival ends, the structures stay. The gardens keep growing.
+          Some people stay too. With each edition, the settlement expands —
+          more homes, more food, more community, more life.
+        </p>
       </div>
-    </div>
-    <div class="act">
-      <div class="act-inner">
-        <div class="act-num"></div>
-        <div class="act-body">
-          <h3>Return</h3>
-          <p>
-            The festival comes back. The new arrivals find a village where there
-            was once bare land. They add another layer. Another ring of homes.
-            Another guild of families. The land breathes deeper each time.
-          </p>
-        </div>
+      <div class="step">
+        <div class="step-number">IV</div>
+        <h3>Return</h3>
+        <p>
+          The festival comes back. The new arrivals find a village where there
+          was once bare land. They add another layer. Another ring of homes.
+          Another guild of families. The land breathes deeper each time.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━ QUOTE ━━━ -->
-<section class="full-quote">
-  <blockquote>
-    At its core, I see a green school with children from all over the world;
-    fairs, markets, concerts and artwork everywhere. But what takes my breath
-    away is that I see the possibility of <strong>a thriving and sustainable human
-    settlement</strong> where people are learning and celebrating, working and
-    nurturing — leaving dozens of ecological compound homes and productive
-    greenhouses behind; all merging into a landscape surrounded by gardens,
-    water, orchards, animals, and the feeling of home.
-  </blockquote>
-</section>
+<div class="full-image">
+  <img src="img/builders.png" alt="Builders sculpting and crafting an adobe structure by hand.">
+</div>
 
-<!-- ━━━ WHAT REMAINS ━━━ -->
-<section class="scene scene-dark">
-  <div class="wide">
-    <span class="scene-label" style="color: var(--sage-muted);">What Remains</span>
-    <p class="scene-title" style="color: var(--cream); margin-bottom: 4rem;">After the music fades,<br>the land remembers.</p>
-
-    <ul class="remains-list">
-      <li>
-        <div class="remains-name">Ruban Cells</div>
-        <div class="remains-desc">Self-sufficient settlement units designed for ~960 people, organized into
-          guilds of extended families. Each cell has its own energy, water, food
-          production, and governance — a complete circular economy.</div>
-      </li>
-      <li>
-        <div class="remains-name">Ecological Compounds</div>
-        <div class="remains-desc">Clustered family homes built with natural materials, surrounded by productive
-          gardens. Shared courtyards, communal kitchens, and workshop spaces where
-          craft and daily life intertwine.</div>
-      </li>
-      <li>
-        <div class="remains-name">Productive Greenhouses</div>
-        <div class="remains-desc">Year-round food production under glass domes at the heart of each guild.
-          Aquaponics, nurseries, and climate-controlled growing — the engine that
-          feeds the settlement through every season.</div>
-      </li>
-      <li>
-        <div class="remains-name">Earth Schools</div>
-        <div class="remains-desc">Learning spaces where children from around the world study regenerative
-          design, ecology, music, and the art of building a civilization. Not classrooms
-          — living laboratories.</div>
-      </li>
-      <li>
-        <div class="remains-name">Gardens & Orchards</div>
-        <div class="remains-desc">Food forests, silvopasture, rotational grazing paddocks, and medicinal
-          gardens. The landscape itself becomes the market, the pharmacy,
-          and the cathedral.</div>
-      </li>
-      <li>
-        <div class="remains-name">Community Infrastructure</div>
-        <div class="remains-desc">Agoras for assembly. Markets for exchange. Concert halls for celebration.
-          Workshops for craft. The bones of a culture that doesn't need to import
-          its meaning from elsewhere.</div>
-      </li>
-    </ul>
+<section id="what-remains" class="section">
+  <div class="container">
+    <h2>What Remains</h2>
+    <div class="remains-grid">
+      <div class="remains-item">
+        <h3>Ruban Cells</h3>
+        <p>Self-sufficient settlement units designed for ~960 people, organized into
+           guilds of extended families. Each cell has its own energy, water, food
+           production, and governance — a complete circular economy.</p>
+      </div>
+      <div class="remains-item">
+        <h3>Ecological Compounds</h3>
+        <p>Clustered family homes built with natural materials, surrounded by productive
+           gardens. Shared courtyards, communal kitchens, and workshop spaces where
+           craft and daily life intertwine.</p>
+      </div>
+      <div class="remains-item">
+        <h3>Productive Greenhouses</h3>
+        <p>Year-round food production under glass domes at the heart of each guild.
+           Aquaponics, nurseries, and climate-controlled growing — the engine that
+           feeds the settlement through every season.</p>
+      </div>
+      <div class="remains-item">
+        <h3>Earth Schools</h3>
+        <p>Learning spaces where children from around the world study regenerative
+           design, ecology, music, and the art of building a civilization. Not classrooms
+           — living laboratories.</p>
+      </div>
+      <div class="remains-item">
+        <h3>Gardens & Orchards</h3>
+        <p>Food forests, silvopasture, rotational grazing paddocks, and medicinal
+           gardens. The landscape itself becomes the market, the pharmacy,
+           and the cathedral.</p>
+      </div>
+      <div class="remains-item">
+        <h3>Community Infrastructure</h3>
+        <p>Agoras for assembly. Markets for exchange. Concert halls for celebration.
+           Workshops for craft. The bones of a culture that doesn't need to import
+           its meaning from elsewhere.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ━━━ JOIN ━━━ -->
-<section class="scene scene-cream" style="padding-bottom: 6rem;">
-  <div class="narrow">
-    <span class="scene-label">Uruguay</span>
-    <p class="scene-title">Be part of it.</p>
+<section class="section section-alt">
+  <div class="container">
+    <blockquote>
+      At its core, I see a green school with children from all over the world;
+      fairs, markets, concerts and artwork everywhere. But what takes my breath
+      away is that I see the possibility of a thriving and sustainable human
+      settlement where people are learning and celebrating, working and
+      nurturing — leaving dozens of ecological compound homes and productive
+      greenhouses behind; all merging into a landscape surrounded by gardens,
+      water, orchards, animals, and the feeling of home.
+    </blockquote>
+  </div>
+</section>
 
-    <p class="join-text">
+<section id="join" class="section">
+  <div class="container contact-container">
+    <h2>Be Part of It</h2>
+    <p class="contact-text">
       Breathing Land is being designed as part of the
       <a href="https://www.rubania.org">Rubania</a> project and the
       <a href="https://gaiasapiens.org">Gaia Sapiens</a> initiative.
       The first edition will take place in Uruguay.
     </p>
-    <p class="join-text">
+    <p class="contact-text">
       If this vision moves you — as a builder, musician, farmer, engineer,
       educator, filmmaker, or simply as a human who wants to help —
       reach out.
     </p>
-
-    <div class="join-links">
+    <div class="contact-links">
       <a href="mailto:etienne@rubania.org">etienne@rubania.org</a>
       <a href="https://gaiasapiens.org" target="_blank" rel="noopener">Gaia Sapiens</a>
       <a href="https://www.rubania.org" target="_blank" rel="noopener">Rubania</a>
@@ -676,10 +196,15 @@ footer a:hover {
   </div>
 </section>
 
-<!-- ━━━ FOOTER ━━━ -->
 <footer>
-  Breathing Land &mdash; A project by <a href="https://marcus.pub">Etienne Marcus</a>
+  <p>Breathing Land &mdash; A project by <a href="https://marcus.pub">Etienne Marcus</a></p>
 </footer>
+
+<script>
+document.querySelector('.nav-toggle').addEventListener('click', function() {
+  document.querySelector('.nav-links').classList.toggle('open');
+});
+</script>
 
 </body>
 </html>
