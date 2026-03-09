@@ -419,6 +419,37 @@ footer a:hover {
   50% { opacity: 0.8; }
 }
 
+/* ── ILLUSTRATION ── */
+.illustration {
+  position: relative;
+  line-height: 0;
+}
+
+.illustration img {
+  width: 100%;
+  display: block;
+}
+
+.illustration::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 30%;
+  background: linear-gradient(to bottom, var(--cream) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.illustration::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 30%;
+  background: linear-gradient(to top, var(--warm-white) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .hero h1 { font-size: 3.5rem; }
@@ -490,6 +521,11 @@ footer a:hover {
     </div>
   </div>
 </section>
+
+<!-- ━━━ ILLUSTRATION ━━━ -->
+<div class="illustration">
+  <img src="img/guild.png" alt="Aerial view of a regenerative settlement — ecological compounds, greenhouses, gardens, and a central dome surrounded by water and life.">
+</div>
 
 <!-- ━━━ HOW IT WORKS ━━━ -->
 <section class="scene scene-warm">
