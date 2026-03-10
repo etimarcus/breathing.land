@@ -328,14 +328,11 @@ blockquote {
 }
 .contact-links a {
   padding: 0.6rem 1.2rem;
-  border: 1px solid var(--border);
-  border-radius: 3px;
   font-size: 0.85rem;
   color: var(--text-muted);
   transition: all 0.3s;
 }
 .contact-links a:hover {
-  border-color: var(--accent);
   color: var(--accent);
 }
 
