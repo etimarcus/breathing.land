@@ -44,7 +44,7 @@ nav {
 
 .nav-brand {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--accent);
   text-decoration: none;
