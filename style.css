@@ -109,9 +109,10 @@ nav {
 }
 
 .isologo img {
-  max-width: 100%;
+  width: 50%;
   height: auto;
   display: block;
+  margin: 0 auto;
   filter: drop-shadow(0 0 60px rgba(168, 216, 110, 0.2)) drop-shadow(0 0 120px rgba(168, 216, 110, 0.08));
 }
 
@@ -368,7 +369,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .isologo { width: 180px; }
+  .isologo img { width: 70%; }
   h2 { font-size: 1.5rem; }
   .hero { padding: 5rem 1.5rem; }
   .hero-tagline { font-size: 1.5rem; }
